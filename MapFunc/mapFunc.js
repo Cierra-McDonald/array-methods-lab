@@ -1,5 +1,4 @@
 
-
 const fakeMap = (arr, callback) => { 
 
     for (let i = 0; i < arr.length; i++) { 
