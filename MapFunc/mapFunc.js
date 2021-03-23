@@ -3,12 +3,10 @@
 const fakeMap = (arr, callback) => { 
 
     for (let i = 0; i < arr.length; i++) { 
-        let cap = callback(arr[i]);
-        arr[i] = cap;
+        arr[i] = callback(arr[i]);
     }
  
     return arr;
-   
 }
 
 module.exports = fakeMap;
