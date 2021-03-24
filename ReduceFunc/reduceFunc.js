@@ -1,13 +1,23 @@
 
 
-const fakeReduce = (arr, callback) => { 
-    let empObj = {};
-    for(let i = 0; i < arr.length; i++) { 
+const fakeReduce = (arr, callback, initialValue) => { 
+    
+    let accumulator;
+    if (initialValue) { 
+        accumulator = initialValue
+        for(let i = 0; i < arr.length; i++) { 
+    
+             accumulator = callback(accumulator, arr[i]);
+            
+        }
+    } else { 
 
-        empObj = callback(empObj, arr[i]);
-        
+        accumulator = arr[0];
+        for(let i = 1; i < arr.length; i++) { 
+            accumulator = callback(accumulator, arr[i]);
+        }
     }
-    return empObj;
+    return accumulator;
 }
 
 module.exports = fakeReduce;
